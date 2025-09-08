@@ -243,10 +243,10 @@ window.addEventListener("DOMContentLoaded", () => {
       `;
       form.insertAdjacentElement("afterend", statusMessage);
 
-      const request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:3000/submit");
+      // const request = new XMLHttpRequest();
+      // request.open("POST", "http://localhost:3000/submit");
 
-      request.setRequestHeader("Content-type", "application/json");
+      //request.setRequestHeader("Content-type", "application/json");
       // request.setRequestHeader("Content-type", "multipart/form-data"); встановлювати не треба у зв`язці з FormData і XMLHttpRequest() - не прийдут дані на сервер!
       const formData = new FormData(form);
 
@@ -255,13 +255,33 @@ window.addEventListener("DOMContentLoaded", () => {
         object[key] = value;
       });
 
-      const json = JSON.stringify(object);
+      // const json = JSON.stringify(object);
 
-      request.send(json);
+      // request.send(json);
+
+      fetch("http://localhost:3000/submit", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        //body: formData,
+        body: JSON.stringify(object),
+      })
+        .then((data) => data.text())
+        .then((data) => {
+          // data - те що вернулося з сервера
+          console.log(data);
+          showThanksModal(message.success);
+          statusMessage.remove();
+        })
+        .catch(() => {
+          showThanksModal(message.failure);
+        })
+        .finally(() => {
+          form.reset();
+        });
 
       /* request.send(formData); */
 
-      request.addEventListener("load", () => {
+      /* request.addEventListener("load", () => {
         if (request.status === 200) {
           console.log(request.response);
           showThanksModal(message.success);
@@ -270,7 +290,7 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
           showThanksModal(message.failure);
         }
-      });
+      }); */
     });
   }
 
