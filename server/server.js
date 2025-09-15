@@ -1,19 +1,33 @@
 import express from "express";
+import fs from "fs";
 import cors from "cors";
-import multer from "multer";
 
 const app = express();
-const upload = multer();
-
 app.use(cors());
 app.use(express.json());
 
-app.post("/submit", upload.none(), (req, res) => {
-  console.log("Отримані дані:", req.body);
+const DATA_FILE = "data.json";
 
-  res.json({ received: req.body });
+function readData() {
+  return JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+}
+
+function writeData(data) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+}
+
+app.get("/menu", (req, res) => {
+  const data = readData();
+  res.json(data.menu);
+});
+
+app.post("/requests", (req, res) => {
+  const data = readData();
+  data.requests.push(req.body);
+  writeData(data);
+  res.json({ status: "ok", saved: req.body });
 });
 
 app.listen(3000, () => {
-  console.log("Сервер запущено на http://localhost:3000");
+  console.log("✅ Сервер працює на http://localhost:3000");
 });
