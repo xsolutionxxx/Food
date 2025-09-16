@@ -25,54 +25,5 @@
       "id": "8891"
     }
   ],
-  "requests": [
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Vsiliy",
-      "phone": "230945762"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "12312",
-      "phone": "0994142124"
-    },
-    {
-      "name": "1",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    },
-    {
-      "name": "Nazar",
-      "phone": "0994142124"
-    }
-  ]
+  "requests": []
 }
