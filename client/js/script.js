@@ -474,6 +474,10 @@ window.addEventListener("DOMContentLoaded", () => {
     dots[slideIndex - 1].style.opacity = 1;
   }
 
+  /* function deleteNotDigits(str) {
+    return +str.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
+  } */
+
   /* showSlides(slideIndex);
 
   slides.length < 10
