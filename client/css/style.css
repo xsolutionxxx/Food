@@ -297,7 +297,7 @@ a {
 }
 
 .offer__slider {
-    width: 649.992px;
+    width: 650px;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -487,7 +487,8 @@ a {
 .menu .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start
+    align-items: flex-start;
+    height: max-content;
 }
 
 .menu .title {
@@ -503,7 +504,7 @@ a {
 
 .menu__item {
     width: 320px;
-    min-height: 450px;
+    min-height: 480px;
     background: #fff;
     box-shadow: 0 4px 25px rgba(0, 0, 0, .25);
     font-size: 16px;
