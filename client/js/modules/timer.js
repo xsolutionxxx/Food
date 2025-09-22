@@ -1,6 +1,4 @@
-function timer() {
-  const deadline = "2025-09-27";
-
+function timer(id, deadline) {
   function getTimeRemining(endTime) {
     let days, hours, minutes, seconds;
     const total = Date.parse(endTime) - Date.parse(new Date()) - 3000 * 60 * 60;
@@ -54,7 +52,8 @@ function timer() {
     }
   }
 
-  setClock(".timer", deadline);
+  setClock(id, deadline);
 }
 
-module.exports = timer;
+// module.exports = timer;
+export default timer;
